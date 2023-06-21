@@ -1,0 +1,658 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="Projekt_erstellen.html">
+      
+      
+        <link rel="next" href="Client.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Server - Client Server Dokumentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#server" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="index.html" title="Client Server Dokumentation" class="md-header__button md-logo" aria-label="Client Server Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Client Server Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+        </form>
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Client Server Dokumentation" class="md-nav__button md-logo" aria-label="Client Server Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Client Server Dokumentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Übersicht
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Projekt_erstellen.html" class="md-nav__link">
+        Projekt erstellen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Server
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Server.html" class="md-nav__link md-nav__link--active">
+        Server
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubersicht" class="md-nav__link">
+    Übersicht
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliotheken" class="md-nav__link">
+    Bibliotheken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-objekt-erstellen" class="md-nav__link">
+    Server Objekt erstellen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbindung-herstellen" class="md-nav__link">
+    Verbindung herstellen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nachrichten-lesen" class="md-nav__link">
+    Nachrichten lesen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nachrichten-verarbeiten" class="md-nav__link">
+    Nachrichten verarbeiten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    Zusammenfassung
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Client.html" class="md-nav__link">
+        Client
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Exercise.html" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubersicht" class="md-nav__link">
+    Übersicht
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliotheken" class="md-nav__link">
+    Bibliotheken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-objekt-erstellen" class="md-nav__link">
+    Server Objekt erstellen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbindung-herstellen" class="md-nav__link">
+    Verbindung herstellen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nachrichten-lesen" class="md-nav__link">
+    Nachrichten lesen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nachrichten-verarbeiten" class="md-nav__link">
+    Nachrichten verarbeiten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    Zusammenfassung
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="server">Server</h1>
+<p>In diesem Abschnitt erstellen wir einen Server, zu dem sich ein Client verbinden kann.</p>
+<h2 id="ubersicht">Übersicht</h2>
+<p>Zum erstellen eines Servers können Sie die Standardbibliotheken von C# verwenden.</p>
+<p>Danach können wir ein Server-Objekt erstellen, das auf einen bestimmten <mark>Port</mark> hört. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ein Port wird in der Computernetzwerktechnik verwendet, um den Datenverkehr zwischen verschiedenen Anwendungen oder Diensten zu ermöglichen. Ein Port ist eine numerische Kennung, die einer bestimmten Anwendung auf einem Gerät zugewiesen wird, um den Austausch von Daten zwischen verschiedenen Geräten im Netzwerk zu ermöglichen.</p>
+</div>
+<p>Nach Starten des Servers wartet dieser, bis sich ein Client verbinden möchte. Nach Aktzeptieren einer Verbindung kann mit dem Client kommuniziert werden, bis die Verbindung vom Client oder vom Server beendet wird.</p>
+<p>In unserem Beispiel werden wir im ersten Schritt einen Server erstellen, der Nachrichten vom Client empfängt und diese auf der eigenen (Server-) Konsole ausgibt.</p>
+<h2 id="bibliotheken">Bibliotheken</h2>
+<p>Zum Erstellen des Servers verwenden wir die Standardbibliotheken von C#. Um diese zu verwenden müssen sie im ersten Schritt eingebunden werden.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Binden Sie folgende Bibliotheken am Anfang des C#-Codedokuments ein:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>System.Net.Sockets
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>System.Net
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>System.Text
+</span></code></pre></div></p>
+<details class="success">
+<summary>Lösung</summary>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Sockets</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+</span></code></pre></div>
+</details>
+</div>
+<p>Mit hilfe dieser Bibliotheken können wir im nächsten Schritt einen Server erstellen.</p>
+<h2 id="server-objekt-erstellen">Server Objekt erstellen</h2>
+<p>Wir verwenden nun die eingebunden Bibliotheken, um ein Server-Objekt zu erstellen.</p>
+<p>In C# ist ein Server ein TcpListerner. Dieser Name kommt daher, dass der Server auf einen bestimmten TCP-Port hört.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag TCP</p>
+<p>Informieren Sie sich circa 10 Minuten über TCP! Suchen sie sich selbstständig geeignetes Informationsmaterial im Internet.</p>
+<p>Beantworten Sie folgende Fragen:</p>
+<ol>
+<li>Wieso verwenden Applikationen TCP-Ports?</li>
+<li>Welche Ports sollten Sie für Ihre eigenen Anwendungen verwenden?</li>
+</ol>
+<details class="success">
+<summary>Lösung -- Falls Sie nichts finden...</summary>
+<p><a href="https://www.elektronik-kompendium.de/sites/net/1812041.htm">Elektronik Kompendium TCP</a></p>
+</details>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag Server erstellen</p>
+<p>Erstellen Sie nun den Server. Sie finden hier verschiedene Schwierigkeitsstufen, die Ihnen unterschiedlich starke Hilfestellung geben.</p>
+<p>Erstellen Sie ein TcpListener-Objekt, welches auf alle IP-Adressen hört (alle Netzwerkadapter). Konfigurieren Sie den Netzwerkport 9999.</p>
+<p>Starten Sie den Server.</p>
+<details class="abstract">
+<summary>Schwierig</summary>
+<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#create-a-server-socket">Microsoft TcpListener erstellen C# Dokumentation</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Verwenden Sie nicht die Socket-Objekte direkt, sondern TcpListener.</p>
+</div>
+</details>
+<details class="abstract">
+<summary>Mittel</summary>
+<p>Erstellen Sie in der Main-Methode ein TcpListener-Objekt. Der Konstruktor des Objekts nimmt als erstes Argument eine IP-Adresse und einen Port.</p>
+<p>Als IP-Adresse können Sie <mark>IPAdress.Any</mark> verwenden. In diesem Fall regestriert das Programm in allen IP-Adressen ihres Systems (z. B. WLAN- und LAN-Adapter) einen TCP-Port.</p>
+<p>Als zweites Argument übergeben Sie einen TCP-Port (9999).</p>
+<p>Nun können Sie über die Start()-Methode den Server starten.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// this will start the server</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+</div>
+<p>Wenn Sie dieses Programm starten werden Sie merken, dass sich nicht viel tut. Warum? Diskutieren Sie mit Ihrem Partner.</p>
+<details class="success">
+<summary>Lösung</summary>
+<p>Das Programm startet zwar den Server, jedoch wird es im nächsten Augenblick sofort wieder beendet.</p>
+</details>
+<h2 id="verbindung-herstellen">Verbindung herstellen</h2>
+<p>Wir haben nun den Server erstellt und gestartet. Dieser hat nun einen Port reserviert. Im nächsten Schritt müssen wir dem Server sagen, dass er auf eine Verbindung warten soll.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Der Server soll nun auf eine eingehende Verbindung eines Clients warten.</p>
+<p>Wird eine Verbindung mit einem Client eingegangen, soll diese in einem Client-Objekt gespeichert werden.</p>
+<details class="abstract">
+<summary>Schwierig</summary>
+<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#accept-a-server-connection">Microsoft Annehmen einer Serververbindung C# Dokumentation</a></p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Verwenden Sie nicht die Async-Methoden!.</p>
+</div>
+</details>
+<details class="abstract">
+<summary>Mittel</summary>
+<p>TcpListener bietet die Methode <mark>AcceptTcpClient()</mark> an, mit deren Hilfe auf eine Verbindung eines Clients gewartet wird.</p>
+<p>Um mit der aktzeptierten Verbindung arbeiten zu können, muss der Rückgabewert gespeichert werden. Die <mark>AcceptTcpClient()</mark> Methode gibt ein TcpClient-Objekt zurück.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// ... libraries</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// ... create server Object </span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// this will start the server</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// if a connection exists, the server will accept it</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+</div>
+<p>Wenn Sie das Programm nun starten sollte sich die Konsole öffnen und offen bleiben.</p>
+<h2 id="nachrichten-lesen">Nachrichten lesen</h2>
+<p>Wir haben nun ein Server-Objekt erstellt und gestartet. Unser server wartet nun an der Stelle
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
+</span></code></pre></div>
+auf die eingehende Verbindung eines Clients. Verbindet sich nun ein Client wird die Verbindung akzeptiert, danach wird sich jedoch der Server wieder direkt abschalten (die Main-Methode wird ja verlassen).</p>
+<p>Um nun Nachrichten zu Empfangen benötigen wir einen sogenannten Stream, den wir verwenden, um Nachrichten zu empfangen und zu senden.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Erstellen Sie einen NetworkStream aus dem TcpClient-Objekt (Rückgabewert von server.AcceptTcpClient).</p>
+<p>Sie können anschließend mit Hilfe der Read-Methode des Streams die Nachrichten lesen. Diese Methode benötigt ein byte-Array, in das es die empfangene Nachricht schreibt.</p>
+<details class="abstract">
+<summary>Schwierig</summary>
+<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#create-a-networkstream-to-send-and-receive-data">Erstellen eines NetworkStream zum Senden und Empfangen von Daten C# Dokumentation</a></p>
+</details>
+<details class="abstract">
+<summary>Mittel</summary>
+<p>Die <mark>GetStream()</mark>-Methode des TcpClients gibt ein <mark>NetworkStream</mark>-Objekt zurück. Speichern Sie dieses Objekt als Variable:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span>
+</span></code></pre></div>
+Anschließend können Sie über die ns.Read-Methode eine Nachricht des Clients lesen. Diese Methode ersartet als ersten Parameter ein byte-Array, in das die Nachricht gespeichert wird. Der zweite Paramter ist der Offset zum ersten Zeichen, der dritte und letzte Parameter kennzeichnet das Ende (Länge) des byte-Arrays.
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></code></pre></div></p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Sockets</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">            </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span><span class="c1">// this will start the server</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span><span class="w">  </span><span class="c1">//if a connection exists, the server will accept it</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span><span class="w"> </span><span class="c1">//networkstream is used to send/receive messages</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span><span class="w">     </span><span class="c1">//the messages arrive as byte array</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">            </span><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span><span class="w">   </span><span class="c1">//the same networkstream reads the message sent by the client</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+</div>
+<h2 id="nachrichten-verarbeiten">Nachrichten verarbeiten</h2>
+<p>Wir haben nun einen funktionierenden Server, der auf eine Verbindung wartet, diese akzeptiert und Nachrichten lesen kann.</p>
+<p>Diese Nachrichten müssen noch irgendwie verarbeitet werden. Wir könnten eine Nachricht zum Beispiel zu Testzwecken einfach auf die Konsole ausgeben.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Arbeitsauftrag</p>
+<p>Lassen Sie die erhaltene Nachricht der <mark>Read</mark>-Methode des ==NetworkStream==s auf die Konsole ausgeben.</p>
+<details class="abstract">
+<summary>Schwierig</summary>
+<p>Recherchieren Sie, wie Sie ein byte-Array auf die Konsole ausgeben können.
+<a href="https://stackoverflow.com/questions/10940883/converting-byte-array-to-string-and-printing-out-to-console">Converting byte array to string and printing out to console stackoverflow</a></p>
+</details>
+<details class="abstract">
+<summary>Mittel</summary>
+<p>C# weiß nicht, was sich in dem Byte-Array befindet. Darum müssen wir definieren, wie die Bytes im Array interpretiert werden sollen.</p>
+<p>Dafür könne nSie folgende Methode verwenden:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">Trim</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p>Die GetString-Methode gibt einen String zurück. Trim() löscht alle Leerzeichen vor und nach der eigentlichen Nachricht.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Console.WriteLine(Encoding.Default.GetString(msg).Trim());</p>
+</details>
+</div>
+<h2 id="zusammenfassung">Zusammenfassung</h2>
+<p>Wir haben nun einen Server, der auf eine bestimmte IP (die eigene) hört. Er wartet auf eine eingehende Verbindung. Nach dem Verbindungsaufbau mit einem Client wartet der Server auf eine Nachricht. Diese wird bei Erhalt auf die Konsole ausgegeben.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
