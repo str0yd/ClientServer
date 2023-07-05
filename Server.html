@@ -15,7 +15,7 @@
         <link rel="next" href="Client.html">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -425,69 +425,52 @@
 <h2 id="bibliotheken">Bibliotheken</h2>
 <p>Zum Erstellen des Servers verwenden wir die Standardbibliotheken von C#. Um diese zu verwenden müssen sie im ersten Schritt eingebunden werden.</p>
 <div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag</p>
+<p class="admonition-title">Bibliotheken einbinden</p>
 <p>Binden Sie folgende Bibliotheken am Anfang des C#-Codedokuments ein:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>System.Net.Sockets
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>System.Net
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>System.Text
 </span></code></pre></div></p>
-<details class="success">
-<summary>Lösung</summary>
+<p>In C# geht das mit Hilfe des using-Schlüsselwortes.</p>
+<p>Fügen Sie folgenden Code am Anfang der cs-Datei ein:</p>
+<div class="admonition example">
+<p class="admonition-title">Code</p>
 <div class="language-cs highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Sockets</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
 </span></code></pre></div>
-</details>
+</div>
 </div>
 <p>Mit hilfe dieser Bibliotheken können wir im nächsten Schritt einen Server erstellen.</p>
 <h2 id="server-objekt-erstellen">Server Objekt erstellen</h2>
 <p>Wir verwenden nun die eingebunden Bibliotheken, um ein Server-Objekt zu erstellen.</p>
 <p>In C# ist ein Server ein TcpListerner. Dieser Name kommt daher, dass der Server auf einen bestimmten TCP-Port hört.</p>
-<div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag TCP</p>
-<p>Informieren Sie sich circa 10 Minuten über TCP! Suchen sie sich selbstständig geeignetes Informationsmaterial im Internet.</p>
-<p>Beantworten Sie folgende Fragen:</p>
-<ol>
-<li>Wieso verwenden Applikationen TCP-Ports?</li>
-<li>Welche Ports sollten Sie für Ihre eigenen Anwendungen verwenden?</li>
-</ol>
-<details class="success">
-<summary>Lösung -- Falls Sie nichts finden...</summary>
-<p><a href="https://www.elektronik-kompendium.de/sites/net/1812041.htm">Elektronik Kompendium TCP</a></p>
-</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ein Port wird in der Computernetzwerktechnik verwendet, um den Datenverkehr zwischen verschiedenen Anwendungen oder Diensten zu ermöglichen. Ein Port ist eine numerische Kennung, die einer bestimmten Anwendung auf einem Gerät zugewiesen wird, um den Austausch von Daten zwischen verschiedenen Geräten im Netzwerk zu ermöglichen.</p>
 </div>
 <div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag Server erstellen</p>
-<p>Erstellen Sie nun den Server. Sie finden hier verschiedene Schwierigkeitsstufen, die Ihnen unterschiedlich starke Hilfestellung geben.</p>
-<p>Erstellen Sie ein TcpListener-Objekt, welches auf alle IP-Adressen hört (alle Netzwerkadapter). Konfigurieren Sie den Netzwerkport 9999.</p>
-<p>Starten Sie den Server.</p>
-<details class="abstract">
-<summary>Schwierig</summary>
-<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#create-a-server-socket">Microsoft TcpListener erstellen C# Dokumentation</a></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Verwenden Sie nicht die Socket-Objekte direkt, sondern TcpListener.</p>
-</div>
-</details>
-<details class="abstract">
-<summary>Mittel</summary>
-<p>Erstellen Sie in der Main-Methode ein TcpListener-Objekt. Der Konstruktor des Objekts nimmt als erstes Argument eine IP-Adresse und einen Port.</p>
-<p>Als IP-Adresse können Sie <mark>IPAdress.Any</mark> verwenden. In diesem Fall regestriert das Programm in allen IP-Adressen ihres Systems (z. B. WLAN- und LAN-Adapter) einen TCP-Port.</p>
-<p>Als zweites Argument übergeben Sie einen TCP-Port (9999).</p>
-<p>Nun können Sie über die Start()-Methode den Server starten.</p>
-</details>
-<details class="success">
-<summary>Lösung</summary>
+<p class="admonition-title">Server erstellen</p>
+<p>Erstellen Sie nun den Server. Dazu benötigen Sie ein TcpListener-Objekt, welches auf alle IP-Adressen hört (alle Netzwerkadapter). Konfigurieren Sie den Netzwerkport 9999.</p>
+<p>Im Anschluss starten Sie den Server.</p>
+<div class="admonition example">
+<p class="admonition-title">Code</p>
 <div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// this will start the server</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// status message</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;--- SERVER STARTED ---&quot;</span><span class="p">);</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
 </span></code></pre></div>
-</details>
+</div>
+<p>Sie haben hier in der Main-Methode ein TcpListener-Objekt mittels Konstruktor erstellt. Dieser Konstruktor des Objekts nimmt als erstes Argument eine IP-Adresse und einen Port.</p>
+<p>Als IP-Adresse können Sie <mark>IPAdress.Any</mark> verwenden. In diesem Fall regestriert das Programm in allen IP-Adressen ihres Systems (z. B. WLAN- und LAN-Adapter) einen TCP-Port.</p>
+<p>Als zweites Argument übergeben Sie einen TCP-Port (9999).</p>
+<p>Die Start()-Methode startet den Server starten.</p>
 </div>
 <p>Wenn Sie dieses Programm starten werden Sie merken, dass sich nicht viel tut. Warum? Diskutieren Sie mit Ihrem Partner.</p>
 <details class="success">
@@ -497,120 +480,117 @@
 <h2 id="verbindung-herstellen">Verbindung herstellen</h2>
 <p>Wir haben nun den Server erstellt und gestartet. Dieser hat nun einen Port reserviert. Im nächsten Schritt müssen wir dem Server sagen, dass er auf eine Verbindung warten soll.</p>
 <div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag</p>
+<p class="admonition-title">TCP Verbindung aktzeptieren</p>
 <p>Der Server soll nun auf eine eingehende Verbindung eines Clients warten.</p>
 <p>Wird eine Verbindung mit einem Client eingegangen, soll diese in einem Client-Objekt gespeichert werden.</p>
-<details class="abstract">
-<summary>Schwierig</summary>
-<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#accept-a-server-connection">Microsoft Annehmen einer Serververbindung C# Dokumentation</a></p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Verwenden Sie nicht die Async-Methoden!.</p>
-</div>
-</details>
-<details class="abstract">
-<summary>Mittel</summary>
 <p>TcpListener bietet die Methode <mark>AcceptTcpClient()</mark> an, mit deren Hilfe auf eine Verbindung eines Clients gewartet wird.</p>
 <p>Um mit der aktzeptierten Verbindung arbeiten zu können, muss der Rückgabewert gespeichert werden. Die <mark>AcceptTcpClient()</mark> Methode gibt ein TcpClient-Objekt zurück.</p>
-</details>
-<details class="success">
-<summary>Lösung</summary>
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// ... libraries</span>
+<p>Fügen Sie folgenden Code nach dem Serverstart ein</p>
+<div class="admonition example">
+<p class="admonition-title">Code</p>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// main method</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// ... create server Object </span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// this will start the server</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// if a connection exists, the server will accept it</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// ... create server object and start server</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// if a connection exists, the server will accept it</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// status message</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;--- CLIENT CONNECTED ---&quot;</span><span class="p">);</span>
 </span></code></pre></div>
-</details>
+</div>
 </div>
 <p>Wenn Sie das Programm nun starten sollte sich die Konsole öffnen und offen bleiben.</p>
 <h2 id="nachrichten-lesen">Nachrichten lesen</h2>
 <p>Wir haben nun ein Server-Objekt erstellt und gestartet. Unser server wartet nun an der Stelle
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
 </span></code></pre></div>
 auf die eingehende Verbindung eines Clients. Verbindet sich nun ein Client wird die Verbindung akzeptiert, danach wird sich jedoch der Server wieder direkt abschalten (die Main-Methode wird ja verlassen).</p>
 <p>Um nun Nachrichten zu Empfangen benötigen wir einen sogenannten Stream, den wir verwenden, um Nachrichten zu empfangen und zu senden.</p>
 <div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag</p>
+<p class="admonition-title">Nachrichten empfangen</p>
 <p>Erstellen Sie einen NetworkStream aus dem TcpClient-Objekt (Rückgabewert von server.AcceptTcpClient).</p>
 <p>Sie können anschließend mit Hilfe der Read-Methode des Streams die Nachrichten lesen. Diese Methode benötigt ein byte-Array, in das es die empfangene Nachricht schreibt.</p>
-<details class="abstract">
-<summary>Schwierig</summary>
-<p><a href="https://learn.microsoft.com/de-de/dotnet/fundamentals/networking/sockets/tcp-classes#create-a-networkstream-to-send-and-receive-data">Erstellen eines NetworkStream zum Senden und Empfangen von Daten C# Dokumentation</a></p>
-</details>
-<details class="abstract">
-<summary>Mittel</summary>
 <p>Die <mark>GetStream()</mark>-Methode des TcpClients gibt ein <mark>NetworkStream</mark>-Objekt zurück. Speichern Sie dieses Objekt als Variable:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span>
 </span></code></pre></div>
-Anschließend können Sie über die ns.Read-Methode eine Nachricht des Clients lesen. Diese Methode ersartet als ersten Parameter ein byte-Array, in das die Nachricht gespeichert wird. Der zweite Paramter ist der Offset zum ersten Zeichen, der dritte und letzte Parameter kennzeichnet das Ende (Länge) des byte-Arrays.
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
-</span></code></pre></div></p>
-</details>
-<details class="success">
-<summary>Lösung</summary>
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Sockets</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net</span><span class="p">;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">            </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span><span class="w">  </span><span class="c1">// this will start the server</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span><span class="w">  </span><span class="c1">//if a connection exists, the server will accept it</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span><span class="w"> </span><span class="c1">//networkstream is used to send/receive messages</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span><span class="w">     </span><span class="c1">//the messages arrive as byte array</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">            </span><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span><span class="w">   </span><span class="c1">//the same networkstream reads the message sent by the client</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="p">}</span>
+Anschließend können Sie über die ns.Read-Methode eine Nachricht des Clients lesen. Diese Methode erwartet als ersten Parameter ein byte-Array, in das die Nachricht gespeichert wird. Der zweite Paramter ist der Offset zum ersten Zeichen, der dritte und letzte Parameter kennzeichnet das Ende (Länge) des byte-Arrays.</p>
+<div class="admonition example">
+<p class="admonition-title">Code</p>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// main method</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">// ... create and start server, wait for client</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">//networkstream is used to send/receive messages</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span><span class="w"> </span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">//the messages arrive as byte array</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1">//the same networkstream reads the message sent by the client</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span><span class="w">   </span>
 </span></code></pre></div>
-</details>
+</div>
+<p>Wir "holen" uns hier vom Client(-Objekt) einen <mark>Networkstream</mark>. Der Client bietet diesen Networkstream sozusagen an und wir können uns diesen in eine Variable speichern.</p>
+<p>Das NetworkStream-Objekt bietet die Metohde Read an, mit deren Hilfe die übertragene Nachricht in ein byte-Array geschrieben wird.</p>
 </div>
 <h2 id="nachrichten-verarbeiten">Nachrichten verarbeiten</h2>
 <p>Wir haben nun einen funktionierenden Server, der auf eine Verbindung wartet, diese akzeptiert und Nachrichten lesen kann.</p>
 <p>Diese Nachrichten müssen noch irgendwie verarbeitet werden. Wir könnten eine Nachricht zum Beispiel zu Testzwecken einfach auf die Konsole ausgeben.</p>
 <div class="admonition abstract">
-<p class="admonition-title">Arbeitsauftrag</p>
+<p class="admonition-title">Nachrichtenverarbeitung</p>
 <p>Lassen Sie die erhaltene Nachricht der <mark>Read</mark>-Methode des ==NetworkStream==s auf die Konsole ausgeben.</p>
-<details class="abstract">
-<summary>Schwierig</summary>
-<p>Recherchieren Sie, wie Sie ein byte-Array auf die Konsole ausgeben können.
-<a href="https://stackoverflow.com/questions/10940883/converting-byte-array-to-string-and-printing-out-to-console">Converting byte array to string and printing out to console stackoverflow</a></p>
-</details>
-<details class="abstract">
-<summary>Mittel</summary>
 <p>C# weiß nicht, was sich in dem Byte-Array befindet. Darum müssen wir definieren, wie die Bytes im Array interpretiert werden sollen.</p>
-<p>Dafür könne nSie folgende Methode verwenden:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">Trim</span><span class="p">()</span>
+<p>Dafür können Sie folgende Methode verwenden:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">Trim</span><span class="p">()</span>
 </span></code></pre></div></p>
 <p>Die GetString-Methode gibt einen String zurück. Trim() löscht alle Leerzeichen vor und nach der eigentlichen Nachricht.</p>
-</details>
-<details class="success">
-<summary>Lösung</summary>
-<p>Console.WriteLine(Encoding.Default.GetString(msg).Trim());</p>
-</details>
+<p>Fügen Sie folgenden Code am Ende der main-Methode ein:</p>
+<div class="admonition example">
+<p class="admonition-title">Code</p>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// main method</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">// ... other server stuff</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">Trim</span><span class="p">());</span>
+</span></code></pre></div>
+</div>
 </div>
 <h2 id="zusammenfassung">Zusammenfassung</h2>
 <p>Wir haben nun einen Server, der auf eine bestimmte IP (die eigene) hört. Er wartet auf eine eingehende Verbindung. Nach dem Verbindungsaufbau mit einem Client wartet der Server auf eine Nachricht. Diese wird bei Erhalt auf die Konsole ausgegeben.</p>
+<details class="success">
+<summary>Gesamter Server Code</summary>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Sockets</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Net</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">{</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="c1">// we set our IP address as server&#39;s address, and we also set the port: 9999</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="n">TcpListener</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TcpListener</span><span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span><span class="m">9999</span><span class="p">);</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="c1">// this will start the server</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="n">server</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="c1">// status message</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;--- SERVER STARTED ---&quot;</span><span class="p">);</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="c1">// we wait for a connection</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="c1">// if a connection exists, the server will accept it</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="n">TcpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">AcceptTcpClient</span><span class="p">();</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="c1">// status message</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;--- CLIENT CONNECTED ---&quot;</span><span class="p">);</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="c1">// networkstream is used to send/receive messages</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">        </span><span class="n">NetworkStream</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">GetStream</span><span class="p">();</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">        </span><span class="c1">// the messages arrive as byte array</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span><span class="w">     </span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">        </span><span class="c1">// the same networkstream reads the message sent by the client</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">        </span><span class="n">ns</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">        </span><span class="c1">// now , we write the message as string</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">Trim</span><span class="p">());</span><span class="w"> </span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
 
 
 
@@ -651,7 +631,7 @@ Anschließend können Sie über die ns.Read-Methode eine Nachricht des Clients l
     <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
     
     
-      <script src="assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
